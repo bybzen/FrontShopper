@@ -1,0 +1,33 @@
+#background{
+    -fx-background-color: white;
+}
+#backgroundHead{
+    -fx-background-color: linen;
+}
+#loginHomebtn{
+    -fx-background-color: transparent;
+}
+#shoppingCartbtn{
+    -fx-background-color: transparent;
+}
+#searchbtn{
+    -fx-background-color: transparent;
+}
+#logoHomebtn{
+    -fx-background-color: transparent;
+}
+#typebtn1{
+    -fx-background-color: transparent;
+}
+#typebtn2{
+    -fx-background-color: transparent;
+}
+#typebtn3{
+    -fx-background-color: transparent;
+}
+#typebtn4{
+    -fx-background-color: transparent;
+}
+#userMenu{
+    -fx-background-color: transparent;
+}

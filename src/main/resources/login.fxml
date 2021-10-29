@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+   <children>
+      <TextField fx:id="loginUsernameField" layoutX="260.0" layoutY="250.0" prefHeight="36.0" prefWidth="218.0" promptText="Username" style="-fx-background-radius: 0;" />
+      <PasswordField fx:id="loginPasswordField" layoutX="260.0" layoutY="340.0" prefHeight="36.0" prefWidth="218.0" promptText="Password" style="-fx-background-radius: 0;" />
+      <ImageView fitHeight="76.0" fitWidth="218.0" layoutX="11.0" layoutY="13.0">
+         <image>
+            <Image url="@images/logo.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="302.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOG IN" wrappingWidth="161.32554626464844">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text layoutX="801.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTER" wrappingWidth="196.99684804622063">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Button fx:id="loginBtn" layoutX="260.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleLoginBtn" prefHeight="38.0" prefWidth="218.0" style="-fx-background-radius: 0; -fx-background-color: #000000;" text="LOG IN" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="registerBtn" layoutX="789.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleRegisterBtn" prefHeight="38.0" prefWidth="218.0" style="-fx-background-radius: 0; -fx-background-color: #000000;" text="CREATE ACCOUNT" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Text layoutX="782.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IF YOU STILL DON'T HAVE A SHOPPER ACCOUNT, USE THIS OPTION TO ACCESS THE REGISTRATION FORM." wrappingWidth="243.5162811279297">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="262.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="84.32554626464844">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="261.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="84.32554626464844">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="logoHomebtn" layoutX="3.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleLogoHomeBtn" prefHeight="84.0" prefWidth="255.0" stylesheets="@stylesheet.css">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="background" prefHeight="720.0" prefWidth="1280.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainPageLoginController">
+    <children>
+        <TextField layoutX="129.0" layoutY="120.0" prefHeight="42.0" prefWidth="1010.0" />
+        <ImageView fitHeight="76.0" fitWidth="218.0" layoutX="22.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" x="10.0" y="10.0">
+            <image>
+                <Image url="@images/logo.jpg" />
+            </image>
+        </ImageView>
+        <Button fx:id="logoHomebtn" layoutX="29.0" layoutY="18.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="218.0" stylesheets="@stylesheet.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <ImageView fitHeight="80.0" fitWidth="30.0" layoutX="1185.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" x="10.0" y="10.0">
+            <image>
+                <Image url="@images/sign-in.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="80.0" fitWidth="30.0" layoutX="1227.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" x="10.0" y="10.0">
+            <image>
+                <Image url="@images/shopping-cart.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="shoppingCartbtn" layoutX="1237.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleShoppingCartBtn" prefHeight="37.0" prefWidth="30.0" stylesheets="@stylesheet.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="1139.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" x="10.0" y="10.0">
+            <image>
+                <Image url="@images/search.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="searchbtn" layoutX="1148.0" layoutY="118.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="35.0" stylesheets="@stylesheet.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Text layoutX="140.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DRESS" wrappingWidth="61.5782470703125">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <Text layoutX="255.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SHIRT" wrappingWidth="61.5782470703125">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <Text layoutX="353.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BLAZER" wrappingWidth="91.2498779296875">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <Text layoutX="475.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JEANS" wrappingWidth="91.2498779296875">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <Line endX="-78.66963195800781" endY="-77.16795349121094" layoutX="274.0" layoutY="272.0" startX="-134.9406280517578" startY="-77.16795349121094" />
+        <Line endX="-80.99398803710938" endY="-77.203125" layoutX="385.0" layoutY="272.0" startX="-130.0" startY="-77.203125" />
+        <Line endX="-60.948394775390625" endY="-78.203125" layoutX="480.0" layoutY="272.0" startX="-127.0" startY="-78.203125" />
+        <Line endX="-70.25067138671875" endY="-78.203125" layoutX="602.0" layoutY="272.0" startX="-127.0" startY="-78.203125" />
+        <Button fx:id="typebtn1" layoutX="132.0" layoutY="170.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="73.0" stylesheets="@stylesheet.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button fx:id="typebtn2" layoutX="248.0" layoutY="170.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="63.0" stylesheets="@stylesheet.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button fx:id="typebtn3" layoutX="350.0" layoutY="170.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="73.0" stylesheets="@stylesheet.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button fx:id="typebtn4" layoutX="473.0" layoutY="170.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="63.0" stylesheets="@stylesheet.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <Button fx:id="userMenu" layoutX="1195.0" layoutY="20.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="30.0" stylesheets="@stylesheet.css">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
+        <ScrollPane layoutX="12.0" layoutY="212.0" prefHeight="498.0" prefWidth="1256.0" />
+    </children>
+</AnchorPane>
