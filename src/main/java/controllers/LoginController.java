@@ -137,5 +137,15 @@ public class LoginController {
         stage.show();
     }
 
+    @FXML
+    public void handleChangePasswordBtn(ActionEvent event) throws IOException{
+        Button a = (Button) event.getSource();
+        Stage stage = (Stage) a.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/change_password.fxml"));
+        stage.setScene(new Scene(loader.load(), 1280, 720));
+        ChangePasswordController register = loader.getController();
+        stage.show();
+    }
+
 
 }
