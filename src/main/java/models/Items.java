@@ -1,37 +1,44 @@
 package models;
 
 public class Items {
+    private String itemId;
     private String nameProduct;
-    private int prize;
+    private float prize;
     private String size;
-    private String category;
-    private String quantity;
+    private int quantity;
 
-    public Items(String nameProduct, int prize, String size, String category, String quantity) {
-        this.nameProduct = nameProduct;
-        this.prize = prize;
-        this.size = size;
-        this.category = category;
-        this.quantity = quantity;
+    public Items() {
     }
 
     public String getNameProduct() {
         return nameProduct;
     }
 
-    public int getPrize() {
+    public void setNameProduct(String nameProduct) {
+        this.nameProduct = nameProduct;
+    }
+
+    public float getPrize() {
         return prize;
     }
 
-    public String getQuantity() {
-        return quantity;
+    public void setPrize(float prize) {
+        this.prize = prize;
     }
 
     public String getSize() {
         return size;
     }
 
-    public String getCategory() {
-        return category;
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

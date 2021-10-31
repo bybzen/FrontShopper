@@ -1,19 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="background" prefHeight="720.0" prefWidth="1280.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainPageController">
    <children>
-      <TextField layoutX="129.0" layoutY="120.0" prefHeight="42.0" prefWidth="1010.0" />
+      <BorderPane layoutY="171.0" prefHeight="554.0" prefWidth="1280.0">
+         <right>
+            <HBox fx:id="rightBar" prefHeight="545.0" prefWidth="393.0" stylesheets="@stylesheet.css" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="chosenClothesCard" prefHeight="564.0" prefWidth="350.0" stylesheets="@stylesheet.css">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="chosen-fruit-card" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                     <children>
+                        <ImageView fx:id="clothesImg" fitHeight="300.0" fitWidth="330.0" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets left="75.0" top="10.0" />
+                           </VBox.margin>
+                           <image>
+                              <Image url="@images/clothes/clothes1.png" />
+                           </image>
+                        </ImageView>
+                        <HBox prefHeight="45.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="clothesNameLabel" prefHeight="45.0" prefWidth="288.0" text="Name :" textFill="#6b6b6b">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="45.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="prizeClothesLabel" prefHeight="45.0" prefWidth="288.0" text="Prize : " textFill="#6b6b6b">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="45.0" prefWidth="110.0" text="Quantity :" textFill="#6b6b6b">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="60.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ComboBox fx:id="quantityClothes" prefHeight="35.0" prefWidth="100.0" promptText="-" styleClass="comboBox" stylesheets="@stylesheet.css">
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="5.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="45.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="45.0" prefWidth="110.0" text="Size :" textFill="#6b6b6b">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ComboBox fx:id="sizeClothes" prefHeight="35.0" prefWidth="100.0" promptText="-" styleClass="comboBox" stylesheets="@stylesheet.css">
+                                 <HBox.margin>
+                                    <Insets left="-20.0" top="5.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="45.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="addToCartBtn" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" styleClass="add-btn" stylesheets="@stylesheet.css" text="ADD TO CART" textFill="#616161">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </right>
+         <left>
+            <HBox prefHeight="544.0" prefWidth="880.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ScrollPane fx:id="scroll" prefHeight="200.0" prefWidth="880.0" styleClass="transparent" stylesheets="@stylesheet.css">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" />
+                     </HBox.margin>
+                     <content>
+                        <GridPane fx:id="grid" prefHeight="122.0" prefWidth="200.0">
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </HBox>
+         </left>
+      </BorderPane>
+      <TextField fx:id="searchBox" layoutX="129.0" layoutY="120.0" prefHeight="42.0" prefWidth="1010.0" promptText="Type here to search" stylesheets="@stylesheet.css">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
       <ImageView fitHeight="76.0" fitWidth="218.0" layoutX="22.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" x="10.0" y="10.0">
          <image>
             <Image url="@images/logo.jpg" />
@@ -33,47 +167,7 @@
             <Image url="@images/search.png" />
          </image>
       </ImageView>
-      <Button fx:id="searchbtn" layoutX="1148.0" layoutY="118.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="35.0" stylesheets="@stylesheet.css">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Text layoutX="140.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DRESS" wrappingWidth="61.5782470703125">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="255.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SHIRT" wrappingWidth="61.5782470703125">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="353.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BLAZER" wrappingWidth="91.2498779296875">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="475.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JEANS" wrappingWidth="91.2498779296875">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Line endX="-78.66963195800781" endY="-77.16795349121094" layoutX="274.0" layoutY="272.0" startX="-134.9406280517578" startY="-77.16795349121094" />
-      <Line endX="-80.99398803710938" endY="-77.203125" layoutX="385.0" layoutY="272.0" startX="-130.0" startY="-77.203125" />
-      <Line endX="-60.948394775390625" endY="-78.203125" layoutX="480.0" layoutY="272.0" startX="-127.0" startY="-78.203125" />
-      <Line endX="-70.25067138671875" endY="-78.203125" layoutX="602.0" layoutY="272.0" startX="-127.0" startY="-78.203125" />
-      <Button fx:id="typebtn1" layoutX="132.0" layoutY="170.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="73.0" stylesheets="@stylesheet.css">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="typebtn2" layoutX="248.0" layoutY="170.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="63.0" stylesheets="@stylesheet.css">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="typebtn3" layoutX="350.0" layoutY="170.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="73.0" stylesheets="@stylesheet.css">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button fx:id="typebtn4" layoutX="473.0" layoutY="170.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="63.0" stylesheets="@stylesheet.css">
+      <Button fx:id="searchbtn" layoutX="1141.0" layoutY="118.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="42.0" stylesheets="@stylesheet.css">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -81,6 +175,5 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ScrollPane layoutX="12.0" layoutY="212.0" prefHeight="498.0" prefWidth="1256.0" />
    </children>
 </AnchorPane>

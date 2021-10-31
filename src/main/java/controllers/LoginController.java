@@ -56,17 +56,17 @@ public class LoginController {
         Button a = (Button) event.getSource();
         Stage stage = (Stage) a.getScene().getWindow();
         if(accountManagement.checkAdminAccount(loginUsernameField.getText(), loginPasswordField.getText()).equals("adminLogin")){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainpage_login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/checkout.fxml")); // ต้องเปลี่ยน
             stage.setScene(new Scene(loader.load(), 1280, 720));
-            MainPageLoginController login = loader.getController();
+            CheckOutController login = loader.getController();
             login.setAccountManagement(accountManagement);
             login.setService(service);
             System.out.println("1");
         }
         else if (accountManagement.checkCustomerAccount(loginUsernameField.getText(), loginPasswordField.getText()).equals("customerLogin")){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/check_out.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainpage_login.fxml"));
             stage.setScene(new Scene(loader.load(), 1280, 720));
-            CheckOutController login = loader.getController();
+            MainPageLoginController login = loader.getController();
             login.setAccountManagement(accountManagement);
             login.setService(service);
             System.out.println("2");

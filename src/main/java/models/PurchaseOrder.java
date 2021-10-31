@@ -9,14 +9,14 @@ public class PurchaseOrder extends Items{
 
 
     public PurchaseOrder(String nameProduct, int prize, String size, String category, String quantity, String purchaseNumber, String time) {
-        super(nameProduct, prize, size, category, quantity);
+        super(nameProduct, prize, size, quantity);
         this.purchaseNumber = purchaseNumber;
         this.time = time;
     }
 
-    public PurchaseOrder() {
-        super("Pink Dress", 500, "Free Size", "Dress", "1");
-    }
+//    public PurchaseOrder() {
+//        super("Pink Dress", 500, "Free Size", "Dress", "1");
+//    }
 
     public String getPurchaseNumber() {
         return purchaseNumber;

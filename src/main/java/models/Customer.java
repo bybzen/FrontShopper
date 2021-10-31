@@ -4,19 +4,28 @@ public class Customer extends Admin{
     private String firstName;
     private String lastName;
     private String address;
-    private String phoneNumber;
+    private String phone;
+    private String customerId;
 
     public Customer(){
 
     }
 
-    public Customer(String username, String password, String firstName, String lastName, String address, String phoneNumber) {
+    public Customer(String username, String password, String firstName, String lastName, String address, String phone) {
         super(username, password);
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
     }
+
+    //    public Customer(String username, String password, String firstName, String lastName, String address, String phone) {
+//        super(username, password);
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.address = address;
+//        this.phone = phone;
+//    }
 
 
     public String getFirstName() {
@@ -31,19 +40,44 @@ public class Customer extends Admin{
         return address;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
-    @Override
-    public String getUsername() {
-        return super.getUsername();
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    @Override
-    public String getPassword() {
-        return super.getPassword();
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    //    @Override
+//    public String getUsername() {
+//        return super.getUsername();
+//    }
+//
+//    @Override
+//    public String getPassword() {
+//        return super.getPassword();
+//    }
+
 
 
 

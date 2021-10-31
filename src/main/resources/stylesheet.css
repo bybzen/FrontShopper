@@ -31,3 +31,43 @@
 #userMenu{
     -fx-background-color: transparent;
 }
+#changePassBtn {
+    -fx-text-fill: white;
+    -fx-border-radius: 20px;
+    -fx-background-color: transparent;
+}
+#changeLabel{
+    -fx-text-fill: black;
+}
+#changeLabel:hover{
+    -fx-text-fill: #ff0c19;
+}
+
+.clothes-item{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30;
+}
+.shadow{
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+}
+#searchBox{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 100;
+    -fx-border-color: darkgray;
+    -fx-border-radius: 100;
+}
+.chosen-fruit-card{
+    -fx-background-color: linen;
+    -fx-background-radius: 30;
+}
+.comboBox{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30;
+}
+.add-btn{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 100;
+}
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
