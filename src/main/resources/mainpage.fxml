@@ -35,15 +35,15 @@
                      <children>
                         <ImageView fx:id="clothesImg" fitHeight="300.0" fitWidth="330.0" pickOnBounds="true" preserveRatio="true">
                            <VBox.margin>
-                              <Insets left="75.0" top="10.0" />
+                              <Insets left="55.0" top="10.0" />
                            </VBox.margin>
                            <image>
-                              <Image url="@images/clothes/clothes1.png" />
+                              <Image url="@images/clothes/items1.jpg" />
                            </image>
                         </ImageView>
-                        <HBox prefHeight="45.0" prefWidth="200.0">
+                        <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <Label fx:id="clothesNameLabel" prefHeight="45.0" prefWidth="288.0" text="Name :" textFill="#6b6b6b">
+                              <Label fx:id="clothesNameLabel" prefHeight="45.0" prefWidth="288.0" text="Name :" textFill="#2b2b2b">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -53,9 +53,9 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="45.0" prefWidth="200.0">
+                        <HBox prefHeight="30.0" prefWidth="200.0">
                            <children>
-                              <Label fx:id="prizeClothesLabel" prefHeight="45.0" prefWidth="288.0" text="Prize : " textFill="#6b6b6b">
+                              <Label fx:id="prizeClothesLabel" prefHeight="46.0" prefWidth="288.0" text="Price : " textFill="#2b2b2b">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -67,7 +67,7 @@
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <Label prefHeight="45.0" prefWidth="110.0" text="Quantity :" textFill="#6b6b6b">
+                              <Label prefHeight="45.0" prefWidth="110.0" text="Quantity :" textFill="#2b2b2b">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
@@ -87,7 +87,7 @@
                         </HBox>
                         <HBox prefHeight="45.0" prefWidth="200.0">
                            <children>
-                              <Label prefHeight="45.0" prefWidth="110.0" text="Size :" textFill="#6b6b6b">
+                              <Label prefHeight="45.0" prefWidth="110.0" text="Size :" textFill="#2b2b2b">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
@@ -107,7 +107,7 @@
                         </HBox>
                         <HBox prefHeight="45.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="addToCartBtn" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" styleClass="add-btn" stylesheets="@stylesheet.css" text="ADD TO CART" textFill="#616161">
+                              <Button fx:id="addToCartBtn" mnemonicParsing="false" onAction="#handleAddCartBtn" prefHeight="35.0" prefWidth="300.0" styleClass="add-btn" stylesheets="@stylesheet.css" text="ADD TO CART" textFill="#2b2b2b">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
@@ -126,9 +126,9 @@
             </HBox>
          </right>
          <left>
-            <HBox prefHeight="544.0" prefWidth="880.0" BorderPane.alignment="CENTER">
+            <HBox prefHeight="544.0" prefWidth="880.0" styleClass="transparent" stylesheets="@stylesheet.css" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fx:id="scroll" prefHeight="200.0" prefWidth="880.0" styleClass="transparent" stylesheets="@stylesheet.css">
+                  <ScrollPane fx:id="scroll" prefHeight="200.0" prefWidth="880.0" stylesheets="@stylesheet.css">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" />
                      </HBox.margin>
@@ -139,6 +139,10 @@
                            </rowConstraints>
                         </GridPane>
                      </content>
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="scroll-bar" />
+                     </styleClass>
                   </ScrollPane>
                </children>
             </HBox>

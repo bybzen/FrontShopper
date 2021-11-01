@@ -7,72 +7,54 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Customer.CustomerMenuController">
    <children>
-      <ImageView fx:id="logoPic" fitHeight="88.0" fitWidth="216.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/logo.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="331.0" layoutY="130.0" text="First name :">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="672.0" layoutY="130.0" text="Last name :">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="331.0" layoutY="230.0" text="Username :">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="331.0" layoutY="330.0" text="Address : ">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="672.0" layoutY="230.0" text="Tel. :">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Button fx:id="editProfileBtn" layoutX="574.0" layoutY="565.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="153.0" style="-fx-background-color: black; -fx-background-radius: 0;" text="edit profile" textFill="WHITE">
+      <Button fx:id="editProfileBtn" layoutX="342.0" layoutY="248.0" mnemonicParsing="false" onAction="#handleEditProfileBtn" prefHeight="56.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="215.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/EditProfileLogo.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
       <Label layoutX="473.0" layoutY="43.0" text="Customer Menu">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <Label fx:id="showFirstName" layoutX="325.0" layoutY="160.0" text="แสดง First name">
+      <Button fx:id="logoHomeBtn" layoutX="25.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleLogoHomeBtn" style="-fx-background-color: white;">
+         <graphic>
+            <ImageView fitHeight="88.0" fitWidth="216.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logo.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="myOrdersBtn" layoutX="733.0" layoutY="237.0" mnemonicParsing="false" onAction="#handleMyOrderBtn" prefHeight="56.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font size="14.0" />
          </font>
-      </Label>
-      <Label fx:id="showLastName" layoutX="666.0" layoutY="160.0" text="แสดง Last name">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="showUserName" layoutX="325.0" layoutY="260.0" text="แสดง Username">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="showTel" layoutX="666.0" layoutY="260.0" text="แสดง Tel.">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="showAddress" layoutX="325.0" layoutY="360.0" prefHeight="25.0" prefWidth="635.0" text="แสดง Address ยาวๆมากๆ">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
+         <graphic>
+            <ImageView fitHeight="215.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/MyOrdersLogo.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="logoutBtn" layoutX="810.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleLogoutBtn" prefHeight="48.0" prefWidth="58.0" style="-fx-background-color: white;">
+         <graphic>
+            <ImageView fitHeight="42.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

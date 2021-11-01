@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Admin.AdminMenuController">
+   <children>
+      <Label layoutX="497.0" layoutY="34.0" text="Admin Menu">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
+      <Button fx:id="logoHomeBtn" layoutX="25.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: white;">
+         <graphic>
+            <ImageView fitHeight="88.0" fitWidth="216.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logo.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="customerInfoBtn" layoutX="310.0" layoutY="248.0" mnemonicParsing="false" onAction="#handleCustomerInfoBtn" prefHeight="56.0" prefWidth="150.0" style="-fx-background-color: white;" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="215.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/CustomersLogo.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="customerOrderBtn" layoutX="690.0" layoutY="195.0" mnemonicParsing="false" onAction="#handleCustomerOrderBtn" prefHeight="27.0" prefWidth="28.0" style="-fx-background-color: white;" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="320.0" fitWidth="320.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/CustomerOrdersLogo.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="logoutBtn" layoutX="764.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleLogoutBtn" prefHeight="48.0" prefWidth="58.0" style="-fx-background-color: white;">
+         <graphic>
+            <ImageView fitHeight="42.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

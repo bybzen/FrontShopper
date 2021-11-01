@@ -1,6 +1,9 @@
 package controllers;
 
 import config.ComponentConfig;
+import controllers.Admin.AdminMenuController;
+import controllers.Customer.CheckOutController;
+import controllers.Customer.MainPageLoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -56,9 +59,9 @@ public class LoginController {
         Button a = (Button) event.getSource();
         Stage stage = (Stage) a.getScene().getWindow();
         if(accountManagement.checkAdminAccount(loginUsernameField.getText(), loginPasswordField.getText()).equals("adminLogin")){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/checkout.fxml")); // ต้องเปลี่ยน
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/admin_menu.fxml")); // ต้องเปลี่ยน
             stage.setScene(new Scene(loader.load(), 1280, 720));
-            CheckOutController login = loader.getController();
+            AdminMenuController login = loader.getController();
             login.setAccountManagement(accountManagement);
             login.setService(service);
             System.out.println("1");

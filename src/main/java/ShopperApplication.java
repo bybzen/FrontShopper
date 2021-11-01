@@ -12,7 +12,8 @@ public class ShopperApplication extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/mainpage.fxml"));
         primaryStage.setTitle("Shopper Clothes Application");
         primaryStage.getIcons().add(new Image("/images/clothes-hanger.png"));
-        primaryStage.setScene(new Scene(root, 1280, 720));
+        primaryStage.setScene(new Scene(root));
+//        primaryStage.setScene(new Scene(root, 1280, 720));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

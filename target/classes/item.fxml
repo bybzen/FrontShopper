@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="250.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ItemController">
+<AnchorPane onMousePressed="#click" prefHeight="300.0" prefWidth="250.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ItemController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="372.0" prefWidth="250.0">
          <children>
@@ -19,20 +19,29 @@
                   <Insets left="20.0" top="20.0" />
                </VBox.margin>
             </HBox>
-            <ImageView fx:id="img" fitHeight="323.0" fitWidth="232.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="clothesImg" fitHeight="266.0" fitWidth="209.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/clothes/clothes1.png" />
+                  <Image url="@images/clothes/items1.jpg" />
                </image>
+               <VBox.margin>
+                  <Insets bottom="40.0" />
+               </VBox.margin>
             </ImageView>
-            <Label fx:id="nameLabel" prefHeight="26.0" prefWidth="237.0" text="Name" textAlignment="CENTER">
+            <Label fx:id="clothesNameLabel" prefHeight="58.0" prefWidth="237.0" text="Name" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="-30.0" />
+               </VBox.margin>
             </Label>
-            <Label fx:id="priceLable" prefHeight="23.0" prefWidth="162.0" text="\$0.99" textAlignment="CENTER">
+            <Label fx:id="priceLable" prefHeight="38.0" prefWidth="239.0" text="\$0.99" textAlignment="CENTER">
                <font>
                   <Font name="Cambria Bold" size="18.0" />
                </font>
+               <padding>
+                  <Insets bottom="15.0" />
+               </padding>
             </Label>
          </children>
       </VBox>

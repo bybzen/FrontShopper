@@ -1,13 +1,31 @@
 package models;
 
 public class Items {
+
     private String itemId;
     private String nameProduct;
-    private float prize;
+    private float price;
     private String size;
     private int quantity;
+    private String imgSrc;
 
     public Items() {
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
+    }
+
+    public String getImgSrc() {
+        return imgSrc;
+    }
+
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
     }
 
     public String getNameProduct() {
@@ -18,12 +36,12 @@ public class Items {
         this.nameProduct = nameProduct;
     }
 
-    public float getPrize() {
-        return prize;
+    public float getPrice() {
+        return price;
     }
 
-    public void setPrize(float prize) {
-        this.prize = prize;
+    public void setPrice(float prize) {
+        this.price = prize;
     }
 
     public String getSize() {
@@ -40,5 +58,12 @@ public class Items {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public boolean checkItemId(String itemId){
+        if(this.itemId.equals(itemId)) {
+            return true;
+        }
+        return false;
     }
 }

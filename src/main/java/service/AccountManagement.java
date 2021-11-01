@@ -98,19 +98,11 @@ public class AccountManagement {
 
     public boolean checkCustomerUsername(String username) {
         for (Customer customer : customerMap.values()) {
-//            try{
             if (customer.checkUsername(username)) {
                 customerNow = customer;
                 return true;
             }
-//            }
-//            catch (IllegalArgumentException e){
-//                throw new IllegalArgumentException(e.getMessage()); }
         }
-//        if(customerNow==null) {
-//            return "customerNull";
-////            throw new IllegalArgumentException("We don't have this username in the database.");
-//        }
         return false;
     }
 
