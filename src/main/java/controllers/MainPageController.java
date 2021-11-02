@@ -84,6 +84,7 @@ public class MainPageController {
         int column = 0;
         int row = 1;
         try {
+            grid.getChildren().clear();
             for (int i = 0; i < items.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/item.fxml"));
@@ -128,9 +129,10 @@ public class MainPageController {
     public void LogoHomebtn(ActionEvent event) throws IOException {
         Button a = (Button) event.getSource();
         Stage stage = (Stage) a.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainpage.fxml"));
         stage.setScene(new Scene(loader.load(), 1280, 720));
-        LoginController ap = loader.getController();
+        MainPageController ap = loader.getController();
+//        grid.getChildren().clear();
         stage.show();
     }
     @FXML
@@ -155,53 +157,7 @@ public class MainPageController {
 
     @FXML
     public void handleSearchItem(ActionEvent event) throws IOException {
-        itemsList.clear();
-        itemsList.addAll(searchList(searchBox.getText(), itemManagement.getItemsList()));
-        System.out.println(itemsList.size());
-        startRunClothes(itemsList);
-
-//        if (itemsList.size() > 0) {
-//            setChosenItem(itemsList.get(0));
-//            myListener = new MyListener() {
-//                @Override
-//                public void onClickListener(Items items) {
-//                    setChosenItem(items);
-//                }
-//            };
-//        }
-//        int column = 0;
-//        int row = 1;
-//        try {
-//            for (int i = 0; i < itemsList.size(); i++) {
-//                FXMLLoader fxmlLoader = new FXMLLoader();
-//                fxmlLoader.setLocation(getClass().getResource("/item.fxml"));
-//                AnchorPane anchorPane = fxmlLoader.load();
-//
-//                ItemController itemController = fxmlLoader.getController();
-//                itemController.setData(itemsList.get(i),myListener);
-//
-//                if (column == 3) {
-//                    column = 0;
-//                    row++;
-//                }
-//
-//                grid.add(anchorPane, column++, row); //(child,column,row)
-//                //set grid width
-//                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-//                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-//                grid.setMaxWidth(Region.USE_PREF_SIZE);
-//
-//                //set grid height
-//                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-//                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-//                grid.setMaxHeight(Region.USE_PREF_SIZE);
-//
-//                GridPane.setMargin(anchorPane, new Insets(10));
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
+        startRunClothes(searchList(searchBox.getText(), itemManagement.getItemsList()));
     }
 
     private List<Items> searchList(String searchWords, List<Items> AllItemList){

@@ -157,7 +157,7 @@
                 <Image url="@images/logo.jpg" />
             </image>
         </ImageView>
-        <Button fx:id="logoHomebtn" layoutX="29.0" layoutY="18.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="218.0" stylesheets="@stylesheet.css">
+        <Button fx:id="logoHomebtn" layoutX="29.0" layoutY="18.0" onAction="#LogoHomebtn" mnemonicParsing="false" prefHeight="76.0" prefWidth="218.0" stylesheets="@stylesheet.css">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor></Button>
