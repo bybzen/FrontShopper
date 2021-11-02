@@ -171,7 +171,7 @@
                 <Image url="@images/search.png" />
             </image>
         </ImageView>
-        <Button fx:id="searchbtn" layoutX="1141.0" layoutY="118.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="42.0" stylesheets="@stylesheet.css">
+        <Button fx:id="searchbtn" layoutX="1141.0" layoutY="118.0" mnemonicParsing="false" onAction="#handleSearchItem" prefHeight="45.0" prefWidth="42.0" stylesheets="@stylesheet.css">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor></Button>

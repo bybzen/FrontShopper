@@ -30,7 +30,7 @@
             <Font size="36.0" />
          </font>
       </Text>
-      <Button fx:id="loginBtn" layoutX="260.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleLoginBtn" prefHeight="38.0" prefWidth="218.0" style="-fx-background-radius: 0; -fx-background-color: #000000;" text="LOG IN" textFill="WHITE">
+      <Button fx:id="loginBtn" layoutX="260.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleLoginBtn" prefHeight="38.0" prefWidth="218.0" stylesheets="@stylesheet.css" text="LOG IN" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -38,7 +38,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="registerBtn" layoutX="789.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleRegisterBtn" prefHeight="38.0" prefWidth="218.0" style="-fx-background-radius: 0; -fx-background-color: #000000;" text="CREATE ACCOUNT" textFill="WHITE">
+      <Button fx:id="registerBtn" layoutX="789.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleRegisterBtn" prefHeight="38.0" prefWidth="218.0" stylesheets="@stylesheet.css" text="CREATE ACCOUNT" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

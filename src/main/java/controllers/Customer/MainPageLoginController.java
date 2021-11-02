@@ -26,10 +26,14 @@ import service.MyListener;
 import service.ShopperApplicationAPIService;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MainPageLoginController {
     @FXML
-    private Button logoutBtn,checkoutBtn,customerMenuBtn;
+    private Button logoutBtn,checkoutBtn,customerMenuBtn,searchbtn;
     @FXML
     private VBox chosenClothesCard;
     @FXML
@@ -52,21 +56,24 @@ public class MainPageLoginController {
     private Image image;
     private MyListener myListener;
     private ItemManagement itemManagement;
+    private List<Items> itemsList;
+
 
     @FXML
     public void initialize(){
+        itemsList = new ArrayList<>();
         itemManagement = new ItemManagement();
         ApplicationContext context = new AnnotationConfigApplicationContext(ComponentConfig.class);
         service = context.getBean(ShopperApplicationAPIService.class);
         quantityClothes.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
         sizeClothes.getItems().addAll("S","M","L","XL");
         itemManagement.setItemMapFromList(service.getAllItems());
-        System.out.println(itemManagement.getItemsList());
-        System.out.println(itemManagement.getItemsList().get(0));
-        System.out.println(itemManagement.getItemsList().get(0).getNameProduct());
+        startRunClothes(itemManagement.getItemsList());
+    }
 
-        if (itemManagement.getItemsList().size() > 0) {
-            setChosenItem(itemManagement.getItemsList().get(0));
+    private void startRunClothes(List<Items> items){
+        if (items.size() > 0) {
+            setChosenItem(items.get(0));
             myListener = new MyListener() {
                 @Override
                 public void onClickListener(Items items) {
@@ -77,13 +84,13 @@ public class MainPageLoginController {
         int column = 0;
         int row = 1;
         try {
-            for (int i = 0; i < itemManagement.getItemsList().size(); i++) {
+            for (int i = 0; i < items.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/item.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 ItemController itemController = fxmlLoader.getController();
-                itemController.setData(itemManagement.getItemsList().get(i),myListener);
+                itemController.setData(items.get(i),myListener);
 
                 if (column == 3) {
                     column = 0;
@@ -139,6 +146,67 @@ public class MainPageLoginController {
         ap.setAccountManagement(accountManagement);
         ap.setService(service);
         stage.show();
+    }
+
+    @FXML
+    public void handleSearchItem(ActionEvent event) throws IOException {
+        itemsList.clear();
+        itemsList.addAll(searchList(searchBox.getText(), itemManagement.getItemsList()));
+        System.out.println(itemsList.size());
+        startRunClothes(itemsList);
+
+//        if (itemsList.size() > 0) {
+//            setChosenItem(itemsList.get(0));
+//            myListener = new MyListener() {
+//                @Override
+//                public void onClickListener(Items items) {
+//                    setChosenItem(items);
+//                }
+//            };
+//        }
+//        int column = 0;
+//        int row = 1;
+//        try {
+//            for (int i = 0; i < itemsList.size(); i++) {
+//                FXMLLoader fxmlLoader = new FXMLLoader();
+//                fxmlLoader.setLocation(getClass().getResource("/item.fxml"));
+//                AnchorPane anchorPane = fxmlLoader.load();
+//
+//                ItemController itemController = fxmlLoader.getController();
+//                itemController.setData(itemsList.get(i),myListener);
+//
+//                if (column == 3) {
+//                    column = 0;
+//                    row++;
+//                }
+//
+//                grid.add(anchorPane, column++, row); //(child,column,row)
+//                //set grid width
+//                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+//                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+//                grid.setMaxWidth(Region.USE_PREF_SIZE);
+//
+//                //set grid height
+//                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+//                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+//                grid.setMaxHeight(Region.USE_PREF_SIZE);
+//
+//                GridPane.setMargin(anchorPane, new Insets(10));
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+    }
+
+    private List<Items> searchList(String searchWords, List<Items> AllItemList){
+        List<String> searchWordArray = Arrays.asList(searchWords.trim().split(" "));
+
+        return AllItemList.stream().filter(input -> {
+            return searchWordArray.stream().allMatch(word ->
+                    input.getNameProduct().toUpperCase().contains(word.toUpperCase()));
+        }).collect(Collectors.toList());
+
     }
 
     private void setChosenItem(Items items) {

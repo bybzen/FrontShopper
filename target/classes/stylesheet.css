@@ -40,7 +40,7 @@
     -fx-text-fill: black;
 }
 #changeLabel:hover{
-    -fx-text-fill: #ff0c19;
+    -fx-text-fill: coral;
 }
 
 .clothes-item{
@@ -68,8 +68,36 @@
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 100;
 }
+#addToCartBtn:hover{
+    -fx-background-color: black;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 100;
+}
 .transparent{
     -fx-background-color: #FFFFFF;
+}
+#loginBtn{
+    -fx-background-color: black;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 0;
+}
+#loginBtn:hover{
+    -fx-background-color: coral;
+    -fx-text-fill: black;
+    -fx-border-radius: 0;
+
+}
+#registerBtn{
+    -fx-background-color: black;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 0;
+
+}
+#registerBtn:hover{
+    -fx-background-color: coral;
+    -fx-text-fill: black;
+    -fx-border-radius: 0;
+
 }
 /*#background{*/
 /*    -fx-background-color: lemonchiffon;*/

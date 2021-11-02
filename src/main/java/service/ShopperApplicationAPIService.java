@@ -2,6 +2,7 @@ package service;
 
 import controllers.ItemController;
 import models.Admin;
+import models.CheckoutOrder;
 import models.Customer;
 import models.Items;
 import org.springframework.http.ResponseEntity;
@@ -58,5 +59,10 @@ public class ShopperApplicationAPIService {
         ResponseEntity<Items[]> response = restTemplate.getForEntity(url, Items[].class);
         Items[] items = response.getBody();
         return Arrays.asList(items);
+    }
+
+    public void addCheckoutItem(CheckoutOrder checkoutOrder){
+        String url = "http://localhost:8080/checkout";
+        restTemplate.postForObject(url, checkoutOrder, CheckoutOrder.class);
     }
 }
