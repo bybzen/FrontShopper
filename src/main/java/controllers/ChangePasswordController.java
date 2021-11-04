@@ -32,7 +32,6 @@ public class ChangePasswordController {
 
     @FXML
     public void initialize() {
-        currentCustomer = new Customer();
         accountManagement = new AccountManagement();
         ApplicationContext context = new AnnotationConfigApplicationContext(ComponentConfig.class);
         service = context.getBean(ShopperApplicationAPIService.class);
@@ -56,9 +55,6 @@ public class ChangePasswordController {
 
         Button a = (Button) event.getSource();
         Stage stage = (Stage) a.getScene().getWindow();
-//        currentCustomer = accountManagement.getCustomerAccount(usernameField.getText());
-//        currentAdmin = accountManagement.getAdminNow();
-//        System.out.println(accountManagement.checkCustomerUsername(usernameField.getText()));
         if (usernameField.getText().equals("") || newPasswordField.getText().equals("") || confirmPasswordField.getText().equals("")) {
             Alert warning = new Alert(Alert.AlertType.ERROR);
             warning.setTitle("ERROR");

@@ -3,22 +3,31 @@ package service;
 import models.Admin;
 import models.Customer;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AccountManagement {
 
-    private HashMap<String, Customer> customerMap = new HashMap<>();
-    private HashMap<String, Admin> adminMap = new HashMap<>();
-
+    private List<Customer> customerMap = new ArrayList<>();
+    private List<Admin> adminMap = new ArrayList<>();
 
     private Admin adminNow;
     private Customer customerNow;
 
     public AccountManagement() {
+        adminNow = new Admin();
+        customerNow = new Customer();
+    }
 
-        adminNow = null;
-        customerNow = null;
+
+    public List<Admin> getAdminMap() {
+
+        return adminMap;
+    }
+
+    public void setAdminMap(List<Admin> adminMap) {
+
+        this.adminMap = adminMap;
     }
 
     public Admin getAdminNow() {
@@ -26,15 +35,14 @@ public class AccountManagement {
         return adminNow;
     }
 
-    public Customer getCustomerNow() {
-
-        return customerNow;
-    }
-
-
     public void setAdminNow(Admin adminNow) {
 
         this.adminNow = adminNow;
+    }
+
+    public Customer getCustomerNow() {
+
+        return customerNow;
     }
 
     public void setCustomerNow(Customer customerNow) {
@@ -44,61 +52,53 @@ public class AccountManagement {
 
     public void setCustomerMapFromList(List<Customer> customerList) {
 
-        this.customerMap = customerListToMap(customerList);
+        this.customerMap = customerList;
     }
 
     public void setAdminMapFromList(List<Admin> adminList) {
 
-        this.adminMap = adminListToMap(adminList);
+        this.adminMap = adminList;
     }
 
-    public String checkAdminAccount(String username, String password) {
-        for (Admin admin : adminMap.values()) {
-//            try{
-            if (admin.checkAdminLogin(username, password)) {
-                adminNow = admin;
-                return "adminLogin";
+    public List<Customer> getCustomerMap() {
+
+        return customerMap;
+    }
+
+    public void setCustomerMap(List<Customer> customerMap) {
+
+        this.customerMap = customerMap;
+    }
+
+    public boolean checkAdminAccount(String username, String password) {
+        for (Admin admin : adminMap) {
+            if (admin.getUsername().equals(username)) {
+                if (admin.getPassword().equals(password)){
+                    adminNow = admin;
+                    return true;
+                }
+
             }
-//            }
-//            catch (IllegalArgumentException e){
-//                throw new IllegalArgumentException(e.getMessage()); }
         }
-        if (customerNow == null) {
-            return "adminNull";
-//            throw new IllegalArgumentException("We don't have this username in the database.");
-        }
-        return "null";
+        return false;
     }
 
-    private HashMap<String, Admin> adminListToMap(List<Admin> admin) {
-        adminMap.clear();
-        for (Admin admin1 : admin) {
-            adminMap.put(admin1.getUsername(), admin1);
-        }
-        return adminMap;
-    }
+    public boolean checkCustomerAccount(String username, String password) {
+        for (Customer customer : customerMap) {
+            if (customer.getUsername().equals(username)) {
+                if (customer.getPassword().equals(password)){
+                    customerNow = customer;
+                    return true;
+                }
 
-    public String checkCustomerAccount(String username, String password) {
-        for (Customer customer : customerMap.values()) {
-//            try{
-            if (customer.checkAdminLogin(username, password)) {
-                customerNow = customer;
-                return "customerLogin";
             }
-//            }
-//            catch (IllegalArgumentException e){
-//                throw new IllegalArgumentException(e.getMessage()); }
         }
-        if (customerNow == null) {
-            return "customerNull";
-//            throw new IllegalArgumentException("We don't have this username in the database.");
-        }
-        return "null";
+        return false;
     }
 
     public boolean checkCustomerUsername(String username) {
-        for (Customer customer : customerMap.values()) {
-            if (customer.checkUsername(username)) {
+        for (Customer customer : customerMap) {
+            if (customer.getUsername().equals(username)) {
                 customerNow = customer;
                 return true;
             }
@@ -107,22 +107,10 @@ public class AccountManagement {
     }
 
 
-    private HashMap<String, Customer> customerListToMap(List<Customer> list) {
-        customerMap.clear();
-        for (Customer customer : list) {
-            customerMap.put(customer.getUsername(), customer);
-        }
-        return customerMap;
-    }
-
-    public HashMap<String, Customer> getCustomerMap() {
-
-        return customerMap;
-    }
 
     public Customer getCustomerAccount(String username) {
-        for (Customer customerAcc : customerMap.values()){
-            if (customerAcc.checkUsername(username)){
+        for (Customer customerAcc : customerMap){
+            if (customerAcc.getUsername().equals(username)){
                 customerNow = customerAcc;
                 return customerNow;
             }
@@ -130,13 +118,14 @@ public class AccountManagement {
         return null;
     }
     public Admin getAdminAccount(String username) {
-        for (Admin admin : adminMap.values()){
-            if (admin.checkUsername(username)){
+        for (Admin admin : adminMap){
+            if (admin.getUsername().equals(username)){
                 adminNow = admin;
                 return adminNow;
             }
         }
         return null;
     }
+
 
 }

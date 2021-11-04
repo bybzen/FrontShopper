@@ -37,24 +37,20 @@ public class Admin {
     }
 
 
-    public boolean checkAdminLogin(String username, String password){
-        if(this.username.equals(username) && this.password.equals(password)) {
-            return true;
-//            if(this.password.equals(password)) {
-//                return true;
-//            }
-//            else {
-//                throw new IllegalArgumentException("The username/password you entered did not match.");
-//            }
-        }
-        return false;
-    }
-
-    public boolean checkUsername(String username){
-        if(this.username.equals(username)) {
-            return true;
-        }
-        return false;
-    }
+//    public boolean checkAdminLogin(String username, String password){
+//        if(this.username.equals(username) && this.password.equals(password)) {
+//            System.out.println(username);
+//            System.out.println(password);
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    public boolean checkUsername(String username){
+//        if(this.username.equals(username)) {
+//            return true;
+//        }
+//        return false;
+//    }
 
 }

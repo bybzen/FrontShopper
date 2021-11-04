@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import models.Items;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import service.AccountManagement;
 import service.ItemManagement;
 import service.MyListener;
 import service.ShopperApplicationAPIService;
@@ -57,6 +58,7 @@ public class MainPageController {
     private MyListener myListener;
     private ItemManagement itemManagement;
     private List<Items> itemsList;
+    private AccountManagement accountManagement;
 
 
     @FXML
@@ -68,6 +70,7 @@ public class MainPageController {
         quantityClothes.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
         sizeClothes.getItems().addAll("S","M","L","XL");
         itemManagement.setItemMapFromList(service.getAllItems());
+//        accountManagement.setCustomerMapFromList(service.getAllCustomer());
         startRunClothes(itemManagement.getItemsList());
     }
 
@@ -152,6 +155,8 @@ public class MainPageController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
         stage.setScene(new Scene(loader.load(), 1280, 720));
         LoginController ap = loader.getController();
+//        ap.setAccountManagement(accountManagement);
+//        ap.setService(service);
         stage.show();
     }
 
@@ -169,17 +174,15 @@ public class MainPageController {
         }).collect(Collectors.toList());
 
     }
-    private List<Items> unActivedItem(List<Items> ActiveList,List<Items> AllItemList) {
-        List<Items> unActivedItemList = new ArrayList<>();
-        for (Items item1 : AllItemList) {
-            for (Items item2 : ActiveList) {
-                if (item2.getNameProduct() == item1.getNameProduct()) {
-                    unActivedItemList.add(item2);
-                }
-            }
-        }
-        return unActivedItemList;
+
+    public void setAccountManagement(AccountManagement accountManagement){
+        this.accountManagement = accountManagement;
     }
+
+    public void setService(ShopperApplicationAPIService service){
+        this.service = service;
+    }
+
 
 
 

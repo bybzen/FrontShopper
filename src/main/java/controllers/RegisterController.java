@@ -14,6 +14,7 @@ import service.AccountManagement;
 import service.ShopperApplicationAPIService;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Optional;
 
 public class RegisterController {
@@ -111,7 +112,8 @@ public class RegisterController {
                         lastNameTextField.getText(),addressField.getText(),telephoneField.getText());
                 System.out.println(telephoneField.getText());
                 service.addCustomer(newCustomer);
-                accountManagement.getCustomerMap().put(newCustomer.getUsername(),newCustomer);
+//                accountManagement.getCustomerMap().add(newCustomer);
+//                accountManagement.getCustomerMap().put(newCustomer.getUsername(),newCustomer);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
                 stage.setScene(new Scene(loader.load(), 1280, 720));
                 LoginController login = loader.getController();

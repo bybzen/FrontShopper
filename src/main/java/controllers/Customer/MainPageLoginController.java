@@ -17,6 +17,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import models.Customer;
 import models.Items;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -131,9 +132,11 @@ public class MainPageLoginController {
     public void LogoHomebtn(ActionEvent event) throws IOException {
         Button a = (Button) event.getSource();
         Stage stage = (Stage) a.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainpage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainpage_login.fxml"));
         stage.setScene(new Scene(loader.load(), 1280, 720));
-        MainPageController ap = loader.getController();
+        MainPageLoginController ap = loader.getController();
+        ap.setAccountManagement(accountManagement);
+        ap.setService(service);
         System.out.println(accountManagement.getCustomerNow().getUsername());
 //        grid.getChildren().clear();
         stage.show();
@@ -157,6 +160,7 @@ public class MainPageLoginController {
         CustomerMenuController ap = loader.getController();
         ap.setAccountManagement(accountManagement);
         ap.setService(service);
+        System.out.println(accountManagement.getCustomerNow().getUsername());
         stage.show();
     }
 
@@ -190,5 +194,11 @@ public class MainPageLoginController {
 
     public void setService(ShopperApplicationAPIService service){
         this.service = service;
+
     }
+
+//    public void setCustomerNow(Customer customerNow) {
+//
+//        this.customerNow = customerNow;
+//    }
 }

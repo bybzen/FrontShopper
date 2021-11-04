@@ -40,6 +40,11 @@ public class CustomerMenuController {
         CustomerEditProfileController ap = loader.getController();
         ap.setAccountManagement(accountManagement);
         ap.setService(service);
+        System.out.println(accountManagement.getCustomerNow().getUsername());
+        System.out.println(accountManagement.getCustomerNow().getFirstName());
+        System.out.println(accountManagement.getCustomerNow().getLastName());
+        System.out.println(accountManagement.getCustomerNow().getPhone());
+        System.out.println(accountManagement.getCustomerNow().getAddress());
         stage.show();
     }
 
@@ -49,7 +54,7 @@ public class CustomerMenuController {
         Stage stage = (Stage) a.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/customer_orders.fxml"));
         stage.setScene(new Scene(loader.load(), 1280, 720));
-        CustomerEditProfileController ap = loader.getController();
+        CustomerOrdersController ap = loader.getController();
         ap.setAccountManagement(accountManagement);
         ap.setService(service);
         stage.show();
