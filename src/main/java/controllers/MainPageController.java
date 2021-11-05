@@ -80,6 +80,8 @@ public class MainPageController {
             myListener = new MyListener() {
                 @Override
                 public void onClickListener(Items items) {
+                    sizeClothes.getSelectionModel().clearSelection();
+                    quantityClothes.getSelectionModel().clearSelection();
                     setChosenItem(items);
                 }
             };

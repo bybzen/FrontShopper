@@ -107,7 +107,7 @@
                                 </HBox>
                                 <HBox prefHeight="45.0" prefWidth="200.0">
                                     <children>
-                                        <Button fx:id="addToCartBtn" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" styleClass="add-btn" stylesheets="@stylesheet.css" text="ADD TO CART" textFill="#2b2b2b">
+                                        <Button fx:id="addToCartBtn" mnemonicParsing="false" onAction="#handleAddCartBtn" prefHeight="35.0" prefWidth="300.0" styleClass="add-btn" stylesheets="@stylesheet.css" text="ADD TO CART" textFill="#2b2b2b">
                                             <HBox.margin>
                                                 <Insets left="25.0" />
                                             </HBox.margin>

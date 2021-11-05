@@ -2,6 +2,7 @@ package controllers.Customer;
 
 import config.ComponentConfig;
 import controllers.ItemController;
+import controllers.LoginController;
 import controllers.MainPageController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import models.CheckOutOrder;
 import models.Customer;
 import models.Items;
 import org.springframework.context.ApplicationContext;
@@ -27,14 +29,13 @@ import service.MyListener;
 import service.ShopperApplicationAPIService;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class MainPageLoginController {
     @FXML
-    private Button logoutBtn,checkoutBtn,customerMenuBtn,searchbtn,logoHomebtn;
+    private Button logoutBtn,checkoutBtn,customerMenuBtn,searchbtn,logoHomebtn,addToCartBtn;
     @FXML
     private VBox chosenClothesCard;
     @FXML
@@ -58,6 +59,7 @@ public class MainPageLoginController {
     private MyListener myListener;
     private ItemManagement itemManagement;
     private List<Items> itemsList;
+    private Items chosenItem;
 
 
     @FXML
@@ -78,6 +80,8 @@ public class MainPageLoginController {
             myListener = new MyListener() {
                 @Override
                 public void onClickListener(Items items) {
+                    sizeClothes.getSelectionModel().clearSelection();
+                    quantityClothes.getSelectionModel().clearSelection();
                     setChosenItem(items);
                 }
             };
@@ -125,6 +129,7 @@ public class MainPageLoginController {
         stage.setScene(new Scene(loader.load(), 1280, 720));
         CheckOutController ap = loader.getController();
         ap.setAccountManagement(accountManagement);
+        ap.setItemManagement(itemManagement);
         ap.setService(service);
         stage.show();
     }
@@ -163,6 +168,43 @@ public class MainPageLoginController {
         System.out.println(accountManagement.getCustomerNow().getUsername());
         stage.show();
     }
+    @FXML
+    public void handleAddCartBtn(ActionEvent event) throws IOException {
+        if (sizeClothes.getValue() == null || quantityClothes.getValue() == null){
+            Alert warning = new Alert(Alert.AlertType.ERROR);
+            warning.setTitle("ERROR");
+            warning.setContentText(null);
+            warning.setHeaderText("Please select quantity and size completely.");
+            warning.showAndWait();
+        }
+        else {
+            Alert a1 = new Alert(Alert.AlertType.CONFIRMATION);
+            a1.setTitle("Confirm");
+            a1.setContentText("Confirm to create your account ?");
+            a1.setHeaderText(null);
+            ButtonType buttonYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+            ButtonType buttonNo = new ButtonType("No", ButtonBar.ButtonData.NO);
+            a1.getButtonTypes().setAll(buttonYes, buttonNo);
+            Optional<ButtonType> result = a1.showAndWait();
+            if (result.get() == buttonYes) {
+                String dateTime = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+                CheckOutOrder newCheckOutOrder = new CheckOutOrder(accountManagement.getCustomerNow().getUsername(),chosenItem.getNameProduct(),chosenItem.getPrice(),
+                        chosenItem.getPrice()*quantityClothes.getValue(),sizeClothes.getValue(),quantityClothes.getValue(),dateTime,accountManagement.getCustomerNow().getAddress(),chosenItem.getImgSrc());
+                service.addCheckOutOrder(newCheckOutOrder);
+                Alert warning = new Alert(Alert.AlertType.INFORMATION);
+                warning.setTitle("Done");
+                warning.setContentText(null);
+                warning.setHeaderText("Your item is already added.");
+                warning.showAndWait();
+            }
+        }
+//        Button a = (Button) event.getSource();
+//        Stage stage = (Stage) a.getScene().getWindow();
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
+//        stage.setScene(new Scene(loader.load(), 1280, 720));
+//        LoginController ap = loader.getController();
+//        stage.show();
+    }
 
     @FXML
     public void handleSearchItem(ActionEvent event) throws IOException {
@@ -179,6 +221,7 @@ public class MainPageLoginController {
 
     }
 
+
     private void setChosenItem(Items items) {
         clothesNameLabel.setText(items.getNameProduct());
         clothesNameLabel.setAlignment(Pos.CENTER);
@@ -186,6 +229,7 @@ public class MainPageLoginController {
         prizeClothesLabel.setAlignment(Pos.CENTER);
         image = new Image(getClass().getResourceAsStream(items.getImgSrc()));
         clothesImg.setImage(image);
+        this.chosenItem = items;
     }
 
     public void setAccountManagement(AccountManagement accountManagement){

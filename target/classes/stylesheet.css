@@ -69,7 +69,7 @@
     -fx-background-radius: 100;
 }
 #addToCartBtn:hover{
-    -fx-background-color: black;
+    -fx-background-color: rgba(239,23,0,0.85);
     -fx-text-fill: #FFFFFF;
     -fx-background-radius: 100;
 }
@@ -82,8 +82,8 @@
     -fx-border-radius: 0;
 }
 #loginBtn:hover{
-    -fx-background-color: coral;
-    -fx-text-fill: black;
+    -fx-background-color: rgba(239,23,0,0.85);
+    -fx-text-fill: #FFFFFF;
     -fx-border-radius: 0;
 
 }
@@ -94,14 +94,19 @@
 
 }
 #registerBtn:hover{
-    -fx-background-color: coral;
-    -fx-text-fill: black;
+    -fx-background-color: rgba(239,23,0,0.85);
+    -fx-text-fill: #FFFFFF;
     -fx-border-radius: 0;
 
 }
-/*#background{*/
-/*    -fx-background-color: lemonchiffon;*/
-/*}*/
-/*#backgroundHead{*/
-/*    -fx-background-color: white;*/
-/*}*/
+#quantityClothes:hover{
+    -fx-background-color: aliceblue;
+    -fx-background-radius: 100;
+
+}
+#sizeClothes:hover{
+    -fx-background-color: lavender;
+    -fx-background-radius: 100;
+    /*-fx-background-color:;*/
+
+}

@@ -29,7 +29,6 @@ public class ItemController {
     private TextFlow text_flow = new TextFlow();
 
 
-
     public void setData(Items items, MyListener myListener) {
         this.items = items;
         this.myListener = myListener;

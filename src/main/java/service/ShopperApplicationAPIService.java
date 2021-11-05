@@ -1,10 +1,6 @@
 package service;
 
-import controllers.ItemController;
-import models.Admin;
-import models.CheckoutOrder;
-import models.Customer;
-import models.Items;
+import models.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -61,8 +57,27 @@ public class ShopperApplicationAPIService {
         return Arrays.asList(items);
     }
 
-    public void addCheckoutItem(CheckoutOrder checkoutOrder){
+    public List<CheckOutOrder> getAllCheckOutOrder(){
         String url = "http://localhost:8080/checkout";
-        restTemplate.postForObject(url, checkoutOrder, CheckoutOrder.class);
+        ResponseEntity<CheckOutOrder[]> response = restTemplate.getForEntity(url, CheckOutOrder[].class);
+        CheckOutOrder[] checkOutOrders = response.getBody();
+        return Arrays.asList(checkOutOrders);
+    }
+
+    public void addCheckOutOrder(CheckOutOrder checkoutOrder){
+        String url = "http://localhost:8080/checkout";
+        restTemplate.postForObject(url, checkoutOrder, CheckOutOrder.class);
+    }
+
+    public List<CustomerOrdered> getAllCustomerOrdered(){
+        String url = "http://localhost:8080/checkout";
+        ResponseEntity<CustomerOrdered[]> response = restTemplate.getForEntity(url, CustomerOrdered[].class);
+        CustomerOrdered[] customerOrdered = response.getBody();
+        return Arrays.asList(customerOrdered);
+    }
+
+    public void addCustomerOrdered(CheckOutOrder checkoutOrder){
+        String url = "http://localhost:8080/ordered";
+        restTemplate.postForObject(url, checkoutOrder, CheckOutOrder.class);
     }
 }
