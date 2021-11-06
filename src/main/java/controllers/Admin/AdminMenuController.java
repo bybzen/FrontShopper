@@ -1,7 +1,6 @@
 package controllers.Admin;
 
 import config.ComponentConfig;
-import controllers.Customer.CustomerOrdersController;
 import controllers.MainPageController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

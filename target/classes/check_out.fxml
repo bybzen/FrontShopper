@@ -18,7 +18,7 @@
    <children>
       <VBox layoutX="105.0" layoutY="192.0" prefHeight="172.0" prefWidth="489.0">
          <children>
-            <Label fx:id="addressLabel" prefHeight="172.0" prefWidth="489.0" style="-fx-background-color: aliceblue;" text="Label">
+            <Label fx:id="addressLabel" prefHeight="172.0" prefWidth="489.0" style="-fx-background-color: aliceblue;">
                <padding>
                   <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                </padding>
@@ -43,7 +43,7 @@
             <Font size="36.0" />
          </font>
       </Text>
-      <Button fx:id="continueBtn" layoutX="1009.0" layoutY="643.0" onAction="#handleContinueBtn" mnemonicParsing="false" prefHeight="38.0" prefWidth="218.0" style="-fx-background-radius: 0; -fx-background-color: #000000;" text="CONTINUE" textFill="WHITE">
+      <Button fx:id="continueBtn" layoutX="1009.0" layoutY="643.0" mnemonicParsing="false" onAction="#handleContinueBtn" prefHeight="38.0" prefWidth="218.0" style="-fx-background-radius: 0; -fx-background-color: #000000;" text="CONTINUE" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -94,5 +94,13 @@
             <Font size="36.0" />
          </font>
       </Label>
+      <Button fx:id="deleteBtn" layoutX="650.0" layoutY="643.0" mnemonicParsing="false" onAction="#handleDeleteBtn" prefHeight="38.0" prefWidth="218.0" style="-fx-background-radius: 0; -fx-background-color: red;" text="DELETE" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

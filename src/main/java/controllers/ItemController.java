@@ -26,7 +26,6 @@ public class ItemController {
     @FXML
     private Label clothesNameLabel,priceLable;
 
-    private TextFlow text_flow = new TextFlow();
 
 
     public void setData(Items items, MyListener myListener) {

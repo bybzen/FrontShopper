@@ -5,11 +5,16 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import models.CustomerOrdered;
+import service.MyListener;
 
 public class AllOrderedItemController {
+
+
     @FXML
     private ImageView clothesImg;
+    private MyListener myListener;
 
     @FXML
     private Label usernameLabel,nameProductLabel,priceLabel,sizeLabel,quantityLabel,totalLabel,statusLabel,dateLabel;

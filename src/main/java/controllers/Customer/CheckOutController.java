@@ -18,6 +18,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import service.AccountManagement;
 import service.ItemManagement;
+import service.MyCheckout;
 import service.ShopperApplicationAPIService;
 
 import java.io.IOException;
@@ -42,6 +43,7 @@ public class CheckOutController {
 
     @FXML
     private Label addressLabel,totalLabel;
+    private MyCheckout myCheckout;
 
 
     @FXML
@@ -66,33 +68,67 @@ public class CheckOutController {
 
     @FXML
     public void handleContinueBtn(ActionEvent event) throws IOException {
+        if (itemManagement.getCheckOutOrderListOfUsername().size() > 0 ){
+            Alert a1 = new Alert(Alert.AlertType.CONFIRMATION);
+            a1.setTitle("Checkout Order");
+            a1.setContentText("Confirm to checkout your order ?");
+            a1.setHeaderText(null);
+            ButtonType buttonYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+            ButtonType buttonNo = new ButtonType("No", ButtonBar.ButtonData.NO);
+            a1.getButtonTypes().setAll(buttonYes, buttonNo);
+            Optional<ButtonType> result = a1.showAndWait();
+            if (result.get() == buttonYes) {
+                for (CheckOutOrder checkOutOrder : itemManagement.getCheckOutOrderListOfUsername()) {
+                    String dateTime = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+                    //                CustomerOrdered newCustomerOrdered = new CustomerOrdered(checkOutOrder.getPurchaseOrderId(),checkOutOrder.getUsername(),"Already Shipping",dateTime,itemManagement.getTotal());
+                    CustomerOrdered newCustomerOrdered = new CustomerOrdered(checkOutOrder.getPurchaseOrderId(), checkOutOrder.getUsername(), checkOutOrder.getNameProduct(), checkOutOrder.getPrice(), checkOutOrder.getQuantity(),
+                            checkOutOrder.getSize(), "Already Shipping", dateTime, itemManagement.getTotal(), checkOutOrder.getImgSrc());
+                    service.addCustomerOrdered(newCustomerOrdered);
+                    service.deleteCheckOutOrder(checkOutOrder);
+                    Button a = (Button) event.getSource();
+                    Stage stage = (Stage) a.getScene().getWindow();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainpage_login.fxml"));
+                    stage.setScene(new Scene(loader.load(), 1280, 720));
+                    MainPageLoginController ap = loader.getController();
+                    ap.setService(service);
+                    ap.setAccountManagement(accountManagement);
+                    //                ap.setItemManagement(itemManagement);
+                    stage.show();
+                }
+            }
+        }
+        else {
+            continueBtn.setDefaultButton(true);
+//            Alert a1 = new Alert(Alert.AlertType.INFORMATION);
+//            a1.setTitle("ERROR");
+//            a1.setContentText("There is no item in a basket.");
+//            a1.setHeaderText("Please add new item");
+        }
+    }
+
+    @FXML
+    public void handleDeleteBtn(ActionEvent event) throws IOException {
         Alert a1 = new Alert(Alert.AlertType.CONFIRMATION);
-        a1.setTitle("Checkout Order");
-        a1.setContentText("Confirm to checkout your order ?");
+        a1.setTitle("Delete Order");
+        a1.setContentText("Confirm to delete your order ?");
         a1.setHeaderText(null);
         ButtonType buttonYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
         ButtonType buttonNo = new ButtonType("No", ButtonBar.ButtonData.NO);
         a1.getButtonTypes().setAll(buttonYes, buttonNo);
         Optional<ButtonType> result = a1.showAndWait();
         if (result.get() == buttonYes) {
-            for (CheckOutOrder checkOutOrder : itemManagement.getCheckOutOrderListOfUsername()){
-                String dateTime = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-//                CustomerOrdered newCustomerOrdered = new CustomerOrdered(checkOutOrder.getPurchaseOrderId(),checkOutOrder.getUsername(),"Already Shipping",dateTime,itemManagement.getTotal());
-                CustomerOrdered newCustomerOrdered = new CustomerOrdered(checkOutOrder.getPurchaseOrderId(),checkOutOrder.getUsername(),checkOutOrder.getNameProduct(),checkOutOrder.getPrice(),checkOutOrder.getQuantity(),
-                        checkOutOrder.getSize(),"Already Shipping",dateTime,itemManagement.getTotal(),checkOutOrder.getImgSrc());
-                service.addCustomerOrdered(newCustomerOrdered);
+            for (CheckOutOrder checkOutOrder : itemManagement.getCheckOutOrderListOfUsername()) {
                 service.deleteCheckOutOrder(checkOutOrder);
                 Button a = (Button) event.getSource();
                 Stage stage = (Stage) a.getScene().getWindow();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainpage_login.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/check_out.fxml"));
                 stage.setScene(new Scene(loader.load(), 1280, 720));
-                MainPageLoginController ap = loader.getController();
+                CheckOutController ap = loader.getController();
                 ap.setService(service);
                 ap.setAccountManagement(accountManagement);
 //                ap.setItemManagement(itemManagement);
                 stage.show();
             }
-
         }
     }
 
