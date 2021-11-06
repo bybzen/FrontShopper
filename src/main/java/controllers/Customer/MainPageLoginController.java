@@ -58,13 +58,11 @@ public class MainPageLoginController {
     private Image image;
     private MyListener myListener;
     private ItemManagement itemManagement;
-    private List<Items> itemsList;
     private Items chosenItem;
 
 
     @FXML
     public void initialize(){
-        itemsList = new ArrayList<>();
         itemManagement = new ItemManagement();
         ApplicationContext context = new AnnotationConfigApplicationContext(ComponentConfig.class);
         service = context.getBean(ShopperApplicationAPIService.class);
@@ -165,6 +163,7 @@ public class MainPageLoginController {
         CustomerMenuController ap = loader.getController();
         ap.setAccountManagement(accountManagement);
         ap.setService(service);
+        ap.setItemManagement(itemManagement);
         System.out.println(accountManagement.getCustomerNow().getUsername());
         stage.show();
     }

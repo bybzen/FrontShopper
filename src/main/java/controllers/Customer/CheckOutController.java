@@ -1,37 +1,35 @@
 package controllers.Customer;
 
 import config.ComponentConfig;
-import controllers.ItemController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import models.Items;
+import models.CheckOutOrder;
+import models.CustomerOrdered;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import service.AccountManagement;
 import service.ItemManagement;
-import service.MyListener;
 import service.ShopperApplicationAPIService;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Optional;
 
 public class CheckOutController {
 
     private ItemManagement itemManagement;
     private ShopperApplicationAPIService service;
     private AccountManagement accountManagement;
-    private MyListener myListener;
 
     @FXML
     private Button logoHomeBtn,continueBtn;
@@ -64,6 +62,38 @@ public class CheckOutController {
         ap.setAccountManagement(accountManagement);
 //        ap.setItemManagement(itemManagement);
         stage.show();
+    }
+
+    @FXML
+    public void handleContinueBtn(ActionEvent event) throws IOException {
+        Alert a1 = new Alert(Alert.AlertType.CONFIRMATION);
+        a1.setTitle("Checkout Order");
+        a1.setContentText("Confirm to checkout your order ?");
+        a1.setHeaderText(null);
+        ButtonType buttonYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+        ButtonType buttonNo = new ButtonType("No", ButtonBar.ButtonData.NO);
+        a1.getButtonTypes().setAll(buttonYes, buttonNo);
+        Optional<ButtonType> result = a1.showAndWait();
+        if (result.get() == buttonYes) {
+            for (CheckOutOrder checkOutOrder : itemManagement.getCheckOutOrderListOfUsername()){
+                String dateTime = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+//                CustomerOrdered newCustomerOrdered = new CustomerOrdered(checkOutOrder.getPurchaseOrderId(),checkOutOrder.getUsername(),"Already Shipping",dateTime,itemManagement.getTotal());
+                CustomerOrdered newCustomerOrdered = new CustomerOrdered(checkOutOrder.getPurchaseOrderId(),checkOutOrder.getUsername(),checkOutOrder.getNameProduct(),checkOutOrder.getPrice(),checkOutOrder.getQuantity(),
+                        checkOutOrder.getSize(),"Already Shipping",dateTime,itemManagement.getTotal(),checkOutOrder.getImgSrc());
+                service.addCustomerOrdered(newCustomerOrdered);
+                service.deleteCheckOutOrder(checkOutOrder);
+                Button a = (Button) event.getSource();
+                Stage stage = (Stage) a.getScene().getWindow();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainpage_login.fxml"));
+                stage.setScene(new Scene(loader.load(), 1280, 720));
+                MainPageLoginController ap = loader.getController();
+                ap.setService(service);
+                ap.setAccountManagement(accountManagement);
+//                ap.setItemManagement(itemManagement);
+                stage.show();
+            }
+
+        }
     }
 
     public void setItemManagement(ItemManagement itemManagement){

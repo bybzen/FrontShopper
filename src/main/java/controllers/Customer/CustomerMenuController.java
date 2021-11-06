@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import service.AccountManagement;
+import service.ItemManagement;
 import service.ShopperApplicationAPIService;
 
 import java.io.IOException;
@@ -19,6 +20,7 @@ public class CustomerMenuController {
 
     private AccountManagement accountManagement;
     private ShopperApplicationAPIService service;
+    private ItemManagement itemManagement;
 
     @FXML
     public void handleLogoHomeBtn(ActionEvent event) throws IOException {
@@ -57,6 +59,7 @@ public class CustomerMenuController {
         CustomerOrdersController ap = loader.getController();
         ap.setAccountManagement(accountManagement);
         ap.setService(service);
+        ap.setItemManagement(itemManagement);
         stage.show();
     }
 
@@ -68,6 +71,9 @@ public class CustomerMenuController {
         stage.setScene(new Scene(loader.load(), 1280, 720));
         MainPageController ap = loader.getController();
         stage.show();
+    }
+    public void setItemManagement(ItemManagement itemManagement){
+        this.itemManagement = itemManagement;
     }
 
     public void setAccountManagement(AccountManagement accountManagement){

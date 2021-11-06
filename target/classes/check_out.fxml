@@ -43,7 +43,7 @@
             <Font size="36.0" />
          </font>
       </Text>
-      <Button fx:id="continueBtn" layoutX="1009.0" layoutY="643.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="218.0" style="-fx-background-radius: 0; -fx-background-color: #000000;" text="CONTINUE" textFill="WHITE">
+      <Button fx:id="continueBtn" layoutX="1009.0" layoutY="643.0" onAction="#handleContinueBtn" mnemonicParsing="false" prefHeight="38.0" prefWidth="218.0" style="-fx-background-radius: 0; -fx-background-color: #000000;" text="CONTINUE" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

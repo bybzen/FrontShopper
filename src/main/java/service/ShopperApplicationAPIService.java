@@ -49,7 +49,6 @@ public class ShopperApplicationAPIService {
         restTemplate.delete(url);
     }
 
-
     public List<Items> getAllItems(){
         String url = "http://localhost:8080/items";
         ResponseEntity<Items[]> response = restTemplate.getForEntity(url, Items[].class);
@@ -69,15 +68,21 @@ public class ShopperApplicationAPIService {
         restTemplate.postForObject(url, checkoutOrder, CheckOutOrder.class);
     }
 
+    public void deleteCheckOutOrder(CheckOutOrder checkoutOrder){
+        String url = "http://localhost:8080/checkout/" + checkoutOrder.getPurchaseOrderId();
+        restTemplate.delete(url, checkoutOrder, CheckOutOrder.class);
+    }
+
     public List<CustomerOrdered> getAllCustomerOrdered(){
-        String url = "http://localhost:8080/checkout";
+        String url = "http://localhost:8080/ordered";
         ResponseEntity<CustomerOrdered[]> response = restTemplate.getForEntity(url, CustomerOrdered[].class);
         CustomerOrdered[] customerOrdered = response.getBody();
         return Arrays.asList(customerOrdered);
     }
 
-    public void addCustomerOrdered(CheckOutOrder checkoutOrder){
+    public void addCustomerOrdered(CustomerOrdered customerOrdered){
         String url = "http://localhost:8080/ordered";
-        restTemplate.postForObject(url, checkoutOrder, CheckOutOrder.class);
+        restTemplate.postForObject(url, customerOrdered, CustomerOrdered.class);
     }
+
 }

@@ -1,6 +1,7 @@
 package service;
 
 import models.CheckOutOrder;
+import models.CustomerOrdered;
 import models.Items;
 
 import java.util.ArrayList;
@@ -12,6 +13,9 @@ public class ItemManagement {
     private List<Items> itemsList = new ArrayList<>();
     private List<CheckOutOrder> allCheckoutList = new ArrayList<>();
     private List<CheckOutOrder> checkOutOrderListOfUsername = new ArrayList<>();
+    private List<CustomerOrdered> allCustomerOrderedList = new ArrayList<>();
+    private List<CustomerOrdered> customerOrderListOfUsername = new ArrayList<>();
+
     private float total ;
 
     private Items itemNow;
@@ -67,7 +71,6 @@ public class ItemManagement {
     }
 
     public void setCheckoutMapFromList(List<CheckOutOrder> allCheckoutList) {
-//        System.out.println(allCheckoutList.size());
         this.allCheckoutList = allCheckOutToList(allCheckoutList);
     }
 
@@ -76,26 +79,44 @@ public class ItemManagement {
         for (CheckOutOrder check: allCheckoutList){
             if (check.getUsername().equals(username)){
                 checkOutOrderListOfUsername.add(check);
-                total = total + check.getPrice();
+                total = total + (check.getPrice()*check.getQuantity()) ;
             }
         }
         return checkOutOrderListOfUsername;
     }
 
+    public List<CustomerOrdered> customerOrderListOfUsername(String username){
+        for (CustomerOrdered ordered: allCustomerOrderedList){
+            if (ordered.getUsername().equals(username)){
+                customerOrderListOfUsername.add(ordered);
+            }
+        }
+        return customerOrderListOfUsername;
+    }
+
+
     public float getTotal() {
         return total;
     }
 
-    public void setTotal(float total) {
-        this.total = total;
+    private List<CustomerOrdered> allCustomerOrderToList(List<CustomerOrdered> list) {
+        allCustomerOrderedList.clear();
+        for (CustomerOrdered ordered : list) {
+            allCustomerOrderedList.add(ordered);
+        }
+        return allCustomerOrderedList;
     }
-    //    public float totalPrice(){
-//        total = 0;
-//        for (CheckOutOrder check: allCheckoutList){
-//            total = total+check.getPrice();
-//            }
-//
-//        return total;
-//    }
+
+    public void setCustomerOrderedMapFromList(List<CustomerOrdered> allCustomerOrderedList) {
+        this.allCustomerOrderedList = allCustomerOrderToList(allCustomerOrderedList);
+    }
+
+    public List<CustomerOrdered> getAllCustomerOrderedList() {
+        return allCustomerOrderedList;
+    }
+
+    public List<CustomerOrdered> getCustomerOrderListOfUsername() {
+        return customerOrderListOfUsername;
+    }
 
 }
