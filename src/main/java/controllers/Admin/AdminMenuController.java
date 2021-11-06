@@ -50,9 +50,9 @@ public class AdminMenuController {
         Stage stage = (Stage) a.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/admin_order_of_customer.fxml"));
         stage.setScene(new Scene(loader.load(), 1280, 720));
-        CustomerOrdersController ap = loader.getController();
-        ap.setService(service);
-        ap.setAccountManagement(accountManagement);
+        OrderOfCustomerController ap = loader.getController();
+//        ap.setService(service);
+//        ap.setAccountManagement(accountManagement);
         stage.show();
     }
 
