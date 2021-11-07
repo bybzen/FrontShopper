@@ -11,78 +11,72 @@ public class ShopperApplicationAPIService {
 
     private RestTemplate restTemplate ;
 
+    private String url="https://project-shopper-api.herokuapp.com/";
+
     public ShopperApplicationAPIService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
     public List<Admin> getAdmin(){
-        String url = "http://localhost:8080/admin";
-        ResponseEntity<Admin[]> response = restTemplate.getForEntity(url, Admin[].class);
+
+        ResponseEntity<Admin[]> response = restTemplate.getForEntity(url+"admin", Admin[].class);
         Admin[] admin = response.getBody();
         return Arrays.asList(admin);
     }
     public void updateAdmin(Admin admin) {
-        String url = "http://localhost:8080/admin/" + admin.getAdminId();
-        restTemplate.put(url,admin,Admin.class);
+        String urlAmUpdate = url + "admin/" + admin.getAdminId();
+        restTemplate.put(urlAmUpdate,admin,Admin.class);
     }
 
 
     public List<Customer> getAllCustomer(){
-        String url = "http://localhost:8080/customer";
-        ResponseEntity<Customer[]> response = restTemplate.getForEntity(url, Customer[].class);
+        ResponseEntity<Customer[]> response = restTemplate.getForEntity(url+"customer", Customer[].class);
         Customer[] customers = response.getBody();
         return Arrays.asList(customers);
     }
 
     public void addCustomer(Customer newCustomer){
-        String url = "http://localhost:8080/customer";
-        restTemplate.postForObject(url, newCustomer, Customer.class);
+        restTemplate.postForObject(url+"customer", newCustomer, Customer.class);
     }
 
     public void updateCustomer(Customer customer) {
-        String url = "http://localhost:8080/customer/" + customer.getCustomerId();
-        restTemplate.put(url,customer,Customer.class);
+        String urlCusUpdate = url + "customer/" + customer.getCustomerId();
+        restTemplate.put(urlCusUpdate,customer,Customer.class);
     }
 
     public void deleteCustomer() {
-        String url = "http://localhost:8080/customer";
-        restTemplate.delete(url);
+        restTemplate.delete(url+"customer");
     }
 
     public List<Items> getAllItems(){
-        String url = "http://localhost:8080/items";
-        ResponseEntity<Items[]> response = restTemplate.getForEntity(url, Items[].class);
+        ResponseEntity<Items[]> response = restTemplate.getForEntity(url+"items", Items[].class);
         Items[] items = response.getBody();
         return Arrays.asList(items);
     }
 
     public List<CheckOutOrder> getAllCheckOutOrder(){
-        String url = "http://localhost:8080/checkout";
-        ResponseEntity<CheckOutOrder[]> response = restTemplate.getForEntity(url, CheckOutOrder[].class);
+        ResponseEntity<CheckOutOrder[]> response = restTemplate.getForEntity(url+"checkout", CheckOutOrder[].class);
         CheckOutOrder[] checkOutOrders = response.getBody();
         return Arrays.asList(checkOutOrders);
     }
 
     public void addCheckOutOrder(CheckOutOrder checkoutOrder){
-        String url = "http://localhost:8080/checkout";
-        restTemplate.postForObject(url, checkoutOrder, CheckOutOrder.class);
+        restTemplate.postForObject(url+"checkout", checkoutOrder, CheckOutOrder.class);
     }
 
     public void deleteCheckOutOrder(CheckOutOrder checkoutOrder){
-        String url = "http://localhost:8080/checkout/" + checkoutOrder.getPurchaseOrderId();
-        restTemplate.delete(url, checkoutOrder, CheckOutOrder.class);
+        String urlCheckDelete = url +"checkout/" + checkoutOrder.getPurchaseOrderId();
+        restTemplate.delete(urlCheckDelete, checkoutOrder, CheckOutOrder.class);
     }
 
     public List<CustomerOrdered> getAllCustomerOrdered(){
-        String url = "http://localhost:8080/ordered";
-        ResponseEntity<CustomerOrdered[]> response = restTemplate.getForEntity(url, CustomerOrdered[].class);
+        ResponseEntity<CustomerOrdered[]> response = restTemplate.getForEntity(url+ "ordered", CustomerOrdered[].class);
         CustomerOrdered[] customerOrdered = response.getBody();
         return Arrays.asList(customerOrdered);
     }
 
     public void addCustomerOrdered(CustomerOrdered customerOrdered){
-        String url = "http://localhost:8080/ordered";
-        restTemplate.postForObject(url, customerOrdered, CustomerOrdered.class);
+        restTemplate.postForObject(url+"ordered", customerOrdered, CustomerOrdered.class);
     }
 
 }
