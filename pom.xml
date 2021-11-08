@@ -19,7 +19,7 @@
     <properties>
         <out.folder>shopperProject</out.folder>
         <out.filename>shopper-jar</out.filename>
-        <project.mainClass>shopperApplication.Application</project.mainClass>
+        <project.mainClass>ShopperApplication</project.mainClass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <junit.version>5.8.1</junit.version>

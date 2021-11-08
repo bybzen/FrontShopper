@@ -44,8 +44,8 @@ public class ShopperApplicationAPIService {
         restTemplate.put(urlCusUpdate,customer,Customer.class);
     }
 
-    public void deleteCustomer() {
-        restTemplate.delete(url+"customer");
+    public void deleteCustomer(Customer customer) {
+        restTemplate.delete(url+"customer"+customer.getCustomerId());
     }
 
     public List<Items> getAllItems(){
