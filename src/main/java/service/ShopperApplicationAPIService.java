@@ -54,6 +54,12 @@ public class ShopperApplicationAPIService {
         return Arrays.asList(items);
     }
 
+    public void deleteItems(Items item) {
+        String urlItemUpdate = url + "items/" + item.getItemId();
+        restTemplate.put(urlItemUpdate,item,Customer.class);
+    }
+
+
     public List<CheckOutOrder> getAllCheckOutOrder(){
         ResponseEntity<CheckOutOrder[]> response = restTemplate.getForEntity(url+"checkout", CheckOutOrder[].class);
         CheckOutOrder[] checkOutOrders = response.getBody();
@@ -78,6 +84,6 @@ public class ShopperApplicationAPIService {
     public void addCustomerOrdered(CustomerOrdered customerOrdered){
         restTemplate.postForObject(url+"ordered", customerOrdered, CustomerOrdered.class);
     }
- 
+
 
 }
