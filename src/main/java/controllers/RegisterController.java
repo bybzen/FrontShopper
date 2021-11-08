@@ -56,9 +56,9 @@ public class RegisterController {
     public void handleLogoHomeBtn(ActionEvent event) throws IOException {
         Button a = (Button) event.getSource();
         Stage stage = (Stage) a.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainpage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
         stage.setScene(new Scene(loader.load(), 1280, 720));
-        MainPageController ap = loader.getController();
+        LoginController ap = loader.getController();
         stage.show();
     }
 

@@ -21,7 +21,7 @@ public class ChangePasswordController {
     @FXML
     private TextField usernameField;
     @FXML
-    private PasswordField newPasswordField, confirmPasswordField;
+    private PasswordField newPasswordField, confirmPasswordField,oldPasswordField;
     @FXML
     private Button changePasswordBtn;
 
@@ -61,7 +61,7 @@ public class ChangePasswordController {
             warning.setContentText(null);
             warning.setHeaderText("Please enter your information completely.");
             warning.showAndWait();
-        } else if (accountManagement.checkCustomerUsername(usernameField.getText())) {
+        } else if (accountManagement.checkCustomerAccount(usernameField.getText(),oldPasswordField.getText())) {
             if (newPasswordField.getText().equals(confirmPasswordField.getText())) {
                 Alert a1 = new Alert(Alert.AlertType.CONFIRMATION);
                 a1.setTitle("Confirm");
@@ -83,7 +83,6 @@ public class ChangePasswordController {
                     LoginController register = loader.getController();
                     stage.show();
 
-
                 }
             } else if (!newPasswordField.getText().equals(confirmPasswordField.getText())) {
                 Alert error = new Alert(Alert.AlertType.ERROR);
@@ -93,8 +92,9 @@ public class ChangePasswordController {
                 error.showAndWait();
                 newPasswordField.clear();
                 confirmPasswordField.clear();
+                oldPasswordField.clear();
             }
-        } else if (usernameField.getText().equals("admin01")) {
+        } else if (accountManagement.checkAdminAccount(usernameField.getText(),oldPasswordField.getText())) {
             if (newPasswordField.getText().equals(confirmPasswordField.getText())) {
                 Alert a1 = new Alert(Alert.AlertType.CONFIRMATION);
                 a1.setTitle("Confirm");
@@ -122,15 +122,18 @@ public class ChangePasswordController {
                 error.showAndWait();
                 newPasswordField.clear();
                 confirmPasswordField.clear();
+                oldPasswordField.clear();
             }
         } else {
             Alert error = new Alert(Alert.AlertType.ERROR);
-            error.setTitle("ERROR");
+            error.setTitle("USERNAME/PASSWORD");
             error.setContentText("Please try again");
-            error.setHeaderText("We don't have this username in the database.");
+            error.setHeaderText("The username/password you entered did not match with our records.");
             error.showAndWait();
             newPasswordField.clear();
             confirmPasswordField.clear();
+            usernameField.clear();
+            oldPasswordField.clear();
         }
     }
 }

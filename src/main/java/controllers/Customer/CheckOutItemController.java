@@ -8,7 +8,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import models.CheckOutOrder;
 import models.Items;
-import service.MyCheckout;
 import service.MyListener;
 
 public class CheckOutItemController {
@@ -28,13 +27,8 @@ public class CheckOutItemController {
     @FXML
     private Label quantityLabel;
 
-    @FXML
-    private void click(MouseEvent mouseEvent) {
-        myCheckout.onClickCheckoutItem(chekOutItem);
-    }
 
     private CheckOutOrder chekOutItem;
-    private MyCheckout myCheckout;
 
     public void setData(CheckOutOrder checkOutOrder) {
         this.chekOutItem = checkOutOrder;
