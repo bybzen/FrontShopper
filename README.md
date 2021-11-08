@@ -21,6 +21,8 @@ password ของแอดมิน : 1234
 1. '6210451225' ธันวพร ธรรมเจริญพงศ์
 
 ## การติดตั้งและรัน Shopper Clothes Application
-ดาวน์โหลด โฟลเดอร์ FrontShopper
-ดับเบิ้ลคลิก shopper-jar.jar ที่อยู่ใน โฟลเดอร์ FrontShopper
-หากดับเบิ้ลคลิกไม่ได้ ให้รันคำสั่ง cmd โดย directory ที่ทำการรันคำสั่งต้องเป็นตำแหน่งเดียวกันกับที่เก็บ iceFactoryApplication.jar รันคำสั่ง java -jar shopper-jar.jar
+ดาวน์โหลด https://github.com/bybzen/FrontShopper
+
+ดับเบิ้ลคลิก shopper-jar.jar ที่อยู่ใน \target\shopperProject\shopper-jar
+
+หากดับเบิ้ลคลิกไม่ได้ ให้รันคำสั่ง cmd โดย directory ที่ทำการรันคำสั่งต้องเป็นตำแหน่งเดียวกันกับที่เก็บ shopper-jar.jar รันคำสั่ง java -jar shopper-jar.jar
