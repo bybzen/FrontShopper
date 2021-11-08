@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: models.CustomerTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in models.CustomerTest
+=======
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in models.CustomerTest
+>>>>>>> 5d28d31f51b0bf13cb08879921302e50be06a292

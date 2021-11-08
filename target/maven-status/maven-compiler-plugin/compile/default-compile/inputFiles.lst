@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\FrontShopper-master\src\main\java\controllers\Admin\OrderOfCustomerController.java
 D:\FrontShopper-master\src\main\java\controllers\Customer\CheckOutItemController.java
 D:\FrontShopper-master\src\main\java\ShopperApplication.java
@@ -28,3 +29,35 @@ D:\FrontShopper-master\src\main\java\models\Admin.java
 D:\FrontShopper-master\src\main\java\service\CustomRestTemplateCustomizer.java
 D:\FrontShopper-master\src\main\java\controllers\MainPageController.java
 D:\FrontShopper-master\src\main\java\controllers\Admin\AdminMenuController.java
+=======
+D:\SE\FrontShopper\src\main\java\service\AccountManagement.java
+D:\SE\FrontShopper\src\main\java\ShopperApplication.java
+D:\SE\FrontShopper\src\main\java\controllers\Admin\AllOrderedItemController.java
+D:\SE\FrontShopper\src\main\java\controllers\Customer\MainPageLoginController.java
+D:\SE\FrontShopper\src\main\java\service\MyListener.java
+D:\SE\FrontShopper\src\main\java\config\ComponentConfig.java
+D:\SE\FrontShopper\src\main\java\controllers\Customer\CustomerEditProfileController.java
+D:\SE\FrontShopper\src\main\java\controllers\ItemController.java
+D:\SE\FrontShopper\src\main\java\controllers\LoginController.java
+D:\SE\FrontShopper\src\main\java\controllers\Customer\CustomerMenuController.java
+D:\SE\FrontShopper\src\main\java\service\ShopperApplicationAPIService.java
+D:\SE\FrontShopper\src\main\java\service\ItemManagement.java
+D:\SE\FrontShopper\src\main\java\controllers\Admin\AdminMenuController.java
+D:\SE\FrontShopper\src\main\java\models\CustomerOrdered.java
+D:\SE\FrontShopper\src\main\java\controllers\Admin\CustomerInfoController.java
+D:\SE\FrontShopper\src\main\java\service\CustomClientHttpRequestInterceptor.java
+D:\SE\FrontShopper\src\main\java\controllers\Admin\CustomerController.java
+D:\SE\FrontShopper\src\main\java\models\Customer.java
+D:\SE\FrontShopper\src\main\java\models\CheckOutOrder.java
+D:\SE\FrontShopper\src\main\java\models\Admin.java
+D:\SE\FrontShopper\src\main\java\controllers\Customer\CheckOutItemController.java
+D:\SE\FrontShopper\src\main\java\models\Items.java
+D:\SE\FrontShopper\src\main\java\service\CustomRestTemplateCustomizer.java
+D:\SE\FrontShopper\src\main\java\controllers\RegisterController.java
+D:\SE\FrontShopper\src\main\java\controllers\Customer\CheckOutController.java
+D:\SE\FrontShopper\src\main\java\controllers\Admin\OrderOfCustomerController.java
+D:\SE\FrontShopper\src\main\java\controllers\MainPageController.java
+D:\SE\FrontShopper\src\main\java\controllers\ChangePasswordController.java
+D:\SE\FrontShopper\src\main\java\controllers\Customer\CustomerOrdersController.java
+D:\SE\FrontShopper\src\main\java\controllers\Customer\CustomerOrderedItemController.java
+>>>>>>> 5d28d31f51b0bf13cb08879921302e50be06a292

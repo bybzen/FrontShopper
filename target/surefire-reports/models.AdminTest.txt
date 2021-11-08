@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: models.AdminTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in models.AdminTest
+=======
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s - in models.AdminTest
+>>>>>>> 5d28d31f51b0bf13cb08879921302e50be06a292
