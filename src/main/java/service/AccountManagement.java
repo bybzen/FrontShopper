@@ -70,23 +70,20 @@ public class AccountManagement {
         this.customerMap = customerMap;
     }
 
-    public boolean checkAdminAccount(String username, String password) {
+    public boolean checkAdminAccount(String username, String oldPassword) {
         for (Admin admin : adminMap) {
-            if (admin.getUsername().equals(username)) {
-                if (admin.getPassword().equals(password)){
+            if (admin.getUsername().equals(username) && admin.getPassword().equals(oldPassword)) {
                     adminNow = admin;
                     return true;
-                }
-
             }
         }
         return false;
     }
 
-    public boolean checkCustomerAccount(String username, String password) {
+    public boolean checkCustomerAccount(String username, String oldPassword) {
         for (Customer customer : customerMap) {
             if (customer.getUsername().equals(username)) {
-                if (customer.getPassword().equals(password)){
+                if (customer.getPassword().equals(oldPassword)){
                     customerNow = customer;
                     return true;
                 }
@@ -98,7 +95,7 @@ public class AccountManagement {
 
     public boolean checkCustomerUsername(String username) {
         for (Customer customer : customerMap) {
-            if (customer.getUsername().equals(username)) {
+            if (customer.getUsername().equals(username) ) {
                 customerNow = customer;
                 return true;
             }

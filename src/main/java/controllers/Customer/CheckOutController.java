@@ -18,7 +18,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import service.AccountManagement;
 import service.ItemManagement;
-import service.MyCheckout;
 import service.ShopperApplicationAPIService;
 
 import java.io.IOException;
@@ -43,7 +42,6 @@ public class CheckOutController {
 
     @FXML
     private Label addressLabel,totalLabel;
-    private MyCheckout myCheckout;
 
 
     @FXML

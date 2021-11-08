@@ -179,7 +179,7 @@ public class MainPageLoginController {
         else {
             Alert a1 = new Alert(Alert.AlertType.CONFIRMATION);
             a1.setTitle("Confirm");
-            a1.setContentText("Confirm to create your account ?");
+            a1.setContentText("Confirm to add item to a cart ?");
             a1.setHeaderText(null);
             ButtonType buttonYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
             ButtonType buttonNo = new ButtonType("No", ButtonBar.ButtonData.NO);

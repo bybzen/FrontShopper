@@ -53,8 +53,6 @@ public class LoginController {
     @FXML
     public void handleLoginBtn(ActionEvent event) throws IOException{
         if (accountManagement.checkCustomerAccount(loginUsernameField.getText(),loginPasswordField.getText())) {
-//            accountManagement.setCustomerNow(accountManagement.getCustomerAccount(loginUsernameField.getText()));
-            System.out.println(accountManagement.getCustomerNow().getUsername());
             Button a = (Button) event.getSource();
             Stage stage = (Stage) a.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainpage_login.fxml"));

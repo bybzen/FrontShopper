@@ -110,3 +110,27 @@
     /*-fx-background-color:;*/
 
 }
+#changePasswordBtn{
+    -fx-background-color: black;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 0;
+
+}
+#changePasswordBtn:hover{
+    -fx-background-color: rgba(239,23,0,0.85);
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 0;
+
+}
+#signUpBtn{
+    -fx-background-color: black;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 0;
+
+}
+#signUpBtn:hover{
+    -fx-background-color: rgba(239,23,0,0.85);
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 0;
+
+}
